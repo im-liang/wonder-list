@@ -1,4 +1,4 @@
-package com.endlesslist.utility;
+package com.wonderlist.utility;
 
 public class GoogleUserInfo {
     public String id = null;
@@ -9,7 +9,7 @@ public class GoogleUserInfo {
     public String locale = null;
     public String familyName = null;
     public String givenName = null;
-    
+
     static GoogleUserInfo getDummyUser(){
         GoogleUserInfo result = new GoogleUserInfo();
         result.id = "321432";

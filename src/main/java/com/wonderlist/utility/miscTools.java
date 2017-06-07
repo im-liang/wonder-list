@@ -1,4 +1,4 @@
-package com.endlesslist.utility;
+package com.wonderlist.utility;
 
 import com.google.appengine.api.datastore.*;
 
@@ -10,21 +10,21 @@ import java.util.TimeZone;
 
 public class miscTools {
     private static DateFormat dateFormat = initDate2ISOString();
-    
+
     private static DateFormat initDate2ISOString(){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.000'Z'");
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         return dateFormat;
     }
-    
+
     public static String date2ISOString(Date date){
         return dateFormat.format(date);
     }
-    
+
     public static Date ISOString2Date(String dateStr){
         return javax.xml.bind.DatatypeConverter.parseDateTime(dateStr).getTime();
     }
-    
+
     public static void deleteItems(DatastoreService datastore, Key listKey){
         Transaction txn = datastore.beginTransaction();
         try {

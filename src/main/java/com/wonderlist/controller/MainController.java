@@ -1,4 +1,4 @@
-package com.endlesslist.controller;
+package com.wonderlist.controller;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -19,7 +19,7 @@ public class MainController {
         entity.setProperty("user_ip", request.getRemoteAddr());
         entity.setProperty("timestamp", new Date());
         datastore.put(entity);
-        
+
         return "home";
     }
 }

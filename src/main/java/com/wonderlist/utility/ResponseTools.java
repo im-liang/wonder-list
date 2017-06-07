@@ -1,4 +1,4 @@
-package com.endlesslist.utility;
+package com.wonderlist.utility;
 
 import org.json.simple.JSONObject;
 
@@ -8,7 +8,7 @@ public class ResponseTools {
         result.put("result", true);
         return result.toString();
     }
-    
+
     public static String plainError(String errorMessage){
         JSONObject result = new JSONObject();
         result.put("result", false);

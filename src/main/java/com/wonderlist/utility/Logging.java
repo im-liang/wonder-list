@@ -1,4 +1,4 @@
-package com.endlesslist.utility;
+package com.wonderlist.utility;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

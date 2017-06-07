@@ -1,7 +1,7 @@
-package com.endlesslist.controller;
+package com.wonderlist.controller;
 
 
-import com.endlesslist.utility.*;
+import com.wonderlist.utility.*;
 import com.google.appengine.api.datastore.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -42,7 +42,7 @@ public class TodoListItemController {
         if(user == null){
             return ResponseTools.plainError("google authentication error");
         }
-        
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Entity todoList;
         try {
@@ -55,7 +55,7 @@ public class TodoListItemController {
         if(!Objects.equals(todoList.getProperty("owner"), user.id) &&
                 !Objects.equals(todoList.getProperty("ownershipType"), "public"))
             return ResponseTools.plainError("permission denied");
-        
+
         // read all items and write to json
         JSONArray listJson = new JSONArray();
         Query query = new Query("todo-list-item", todoListKey);
@@ -75,10 +75,10 @@ public class TodoListItemController {
         JSONObject result = new JSONObject();
         result.put("result", true);
         result.put("list", listJson);
-        
+
         return result.toString();
     }
-    
+
     @RequestMapping(value = "/ajax/todo-list/todo-list-write", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public String todoWrite(HttpServletRequest request, HttpServletResponse response,
@@ -103,7 +103,7 @@ public class TodoListItemController {
         if(user == null){
             return ResponseTools.plainError("google authentication error");
         }
-        
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Entity todoList;
         try {
@@ -140,7 +140,7 @@ public class TodoListItemController {
         // change last modified
         todoList.setProperty("lastModifiedAt", new Date());
         datastore.put(todoList);
-        
+
         return ResponseTools.plainSuccess();
     }
 }

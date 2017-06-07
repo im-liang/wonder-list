@@ -1,6 +1,6 @@
-package com.endlesslist.controller;
+package com.wonderlist.controller;
 
-import com.endlesslist.utility.*;
+import com.wonderlist.utility.*;
 import com.google.appengine.api.datastore.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -40,14 +40,14 @@ public class TodoListController {
             return ResponseTools.plainError("json parsing error");
         }
         GoogleUserInfo user = GoogleAuth.googleVerification(idToken);
-   
+
         if (user == null)
             return ResponseTools.plainError("google authentication error");
         if (name == null)
             return ResponseTools.plainError("name is null");
         if (ownershipType == null)
             return ResponseTools.plainError("ownershipType is null");
-        
+
         //check owner ship
         if (!Objects.equals(ownershipType, "private") && !Objects.equals(ownershipType, "public"))
             return ResponseTools.plainError("ownershipType should be private or public");
@@ -61,13 +61,13 @@ public class TodoListController {
         entity.setProperty("createdAt", new Date());
         entity.setProperty("lastModifiedAt", new Date());
         datastore.put(entity);
-        
+
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("result", true);
         jsonObject.put("key", KeyFactory.keyToString(entity.getKey()));
         return jsonObject.toString();
     }
-    
+
     @RequestMapping(value = "/ajax/todo-list/remove-todo-list", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public String removeTodoList(HttpServletRequest request, HttpServletResponse response, @RequestBody String body) {
@@ -88,7 +88,7 @@ public class TodoListController {
         if(user == null){
             return ResponseTools.plainError("google authentication error");
         }
-        
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Entity todoList;
         try {
@@ -102,12 +102,12 @@ public class TodoListController {
         // check permission
         if(!Objects.equals(todoList.getProperty("owner"), user.id))
             return ResponseTools.plainError("permission denied");
-        
+
         datastore.delete(todoListKey);
-        
+
         return ResponseTools.plainSuccess();
     }
-    
+
     @RequestMapping(value = "/ajax/todo-list/list-todo-list", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public String listTodo(HttpServletRequest request, HttpServletResponse response,
@@ -146,7 +146,7 @@ public class TodoListController {
         if(user == null){
             return ResponseTools.plainError("google authentication error");
         }
-        
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Query query = new Query("todo-list");
         FetchOptions fetchOptions = FetchOptions.Builder.withLimit(listNum);

@@ -1,6 +1,6 @@
-package com.endlesslist.controller;
+package com.wonderlist.controller;
 
-import com.endlesslist.utility.*;
+import com.wonderlist.utility.*;
 import com.google.appengine.api.datastore.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -23,7 +23,7 @@ public class MainRestController {
         if(!Objects.equals(request.getParameter("e"), "abc"))throw new IllegalArgumentException("test exception");
         return "guestbook";
     }
-    
+
     @RequestMapping("/my_visit")
     @ResponseBody
     public String myVisit(HttpServletRequest request, HttpServletResponse response) {
@@ -46,7 +46,7 @@ public class MainRestController {
         }
         return result_str.toString();
     }
-    
+
     @RequestMapping(value = "/ajax/todo-list/login", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public String login(HttpServletRequest request, HttpServletResponse response,

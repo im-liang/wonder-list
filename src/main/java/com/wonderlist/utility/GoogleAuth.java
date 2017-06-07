@@ -1,4 +1,4 @@
-package com.endlesslist.utility;
+package com.wonderlist.utility;
 
 import com.google.api.client.extensions.appengine.http.UrlFetchTransport;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
@@ -46,4 +46,3 @@ public class GoogleAuth {
         }
     }
 }
-

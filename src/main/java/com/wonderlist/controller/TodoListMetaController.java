@@ -1,9 +1,9 @@
-package com.endlesslist.controller;
+package com.wonderlist.controller;
 
-import com.endlesslist.utility.GoogleAuth;
-import com.endlesslist.utility.GoogleUserInfo;
-import com.endlesslist.utility.Logging;
-import com.endlesslist.utility.ResponseTools;
+import com.wonderlist.utility.GoogleAuth;
+import com.wonderlist.utility.GoogleUserInfo;
+import com.wonderlist.utility.Logging;
+import com.wonderlist.utility.ResponseTools;
 import com.google.appengine.api.datastore.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -41,7 +41,7 @@ public class TodoListMetaController {
         if(user == null){
             return ResponseTools.plainError("google authentication error");
         }
-        
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Entity todoList;
         try {
@@ -54,17 +54,17 @@ public class TodoListMetaController {
         if(!Objects.equals(todoList.getProperty("owner"), user.id) &&
                 !Objects.equals(todoList.getProperty("ownershipType"), "public"))
             return ResponseTools.plainError("permission denied");
-        
+
         JSONObject result = new JSONObject();
         result.put("result", true);
         result.put("name", todoList.getProperty("name"));
         result.put("ownershipType", todoList.getProperty("ownershipType"));
         result.put("owner", todoList.getProperty("owner"));
         result.put("ownerName", todoList.getProperty("ownerName"));
-        
+
         return result.toString();
     }
-    
+
     @RequestMapping(value = "/ajax/todo-list/todo-list-meta-write", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public String writeTodoListMeta(HttpServletRequest request, HttpServletResponse response, @RequestBody String body) {
@@ -89,7 +89,7 @@ public class TodoListMetaController {
         if(user == null){
             return ResponseTools.plainError("google authentication error");
         }
-        
+
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Entity todoList;
         try {
@@ -101,14 +101,14 @@ public class TodoListMetaController {
         // check permission
         if(!Objects.equals(todoList.getProperty("owner"), user.id))
             return ResponseTools.plainError("permission denied");
-        
+
         if(name != null) todoList.setProperty("name", name);
         if(ownershipType != null) todoList.setProperty("ownershipType", ownershipType);
-    
+
         // change last modified
         todoList.setProperty("lastModifiedAt", new Date());
         datastore.put(todoList);
-        
+
         return ResponseTools.plainSuccess();
     }
 }
