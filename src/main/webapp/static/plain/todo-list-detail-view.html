@@ -1,0 +1,35 @@
+<script id="todo-list-detail" type="text/html">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">List Name: </h4><span><input class="detail-name" type="text" value="{{meta.name}}"></span>
+                <h4 class="modal-title">Owner: </h4><span><input class="detail-owner" type="text" value="{{meta.ownerName}}" disabled></span>
+                <br>
+                <label class="radio-inline"><input class="detail-public" type="radio" name="ownershipType" value="public">public</label>
+                <label class="radio-inline"><input class="detail-private" type="radio" name="ownershipType" value="private">private</label>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-default detail-add-btn">Add</button>
+                <table class="table table-hover，sortable" id="sortable_308">
+                    <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th class="hidden-xs hidden-sm">Start Date</th>
+                        <th class="hidden-xs">End Date</th>
+                        <th class="hidden-xs">Completed</th>
+                        <th class="hidden-sm hidden-md hidden-lg">✓</th>
+                    </tr>
+                    </thead>
+                    <tbody class="detail-list">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default detail-save-btn">Save</button>
+                <button type="button" class="btn btn-default detail-cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</script>

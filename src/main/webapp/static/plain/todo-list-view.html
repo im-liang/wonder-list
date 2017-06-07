@@ -1,0 +1,38 @@
+<script id="todo-list-card" type="text/html">
+    <div key="{{key}}">
+        <div class="hovereffect">
+            <!-- list info -->
+            <div class="list-info">
+                <h3>Name: {{list_name}}</h3>
+                <h4>Create By: {{ownerName}}</h4>
+                <h2>{{ownershipType}}</h2>
+            </div>
+            <!-- list items -->
+            <div class="overlay">
+                <h4 class="count-todos">XX Items Left</h4>
+                <div class="item-info">
+                    <ul id="unfinish_list">
+                    </ul>
+                    <ul id="already_done" class="collapse">
+                    </ul>
+                    <div class="span12">
+                        <button id="count-done" type="button" class="btn btn-link span1 col-md-offset-7" data-toggle="collapse"
+                                data-target="#already_done">XX Items Completed
+                        </button>
+                    </div>
+                </div>
+                <a id="delete_btn" class="info">Delete</a>
+                <a id="edit_btn" class="info" href="#">Edit</a>
+                <a id="view_btn" class="info" href="#">View</a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="finish-item" type="text/html">
+    <input type="checkbox" disabled="disabled" checked="checked"><strike>{{item_description}}</strike>
+</script>
+
+<script id="unfinish-item" type="text/html">
+    <input type="checkbox" disabled="disabled">{{item_description}}
+</script>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datastore-indexes autoGenerate="true">
+    <datastore-index kind="visit" ancestor="false" source="manual">
+        <property name="user_ip" direction="desc" />
+        <property name="timestamp" direction="desc" />
+    </datastore-index>
+    <datastore-index kind="todo-list" ancestor="false" source="manual">
+        <property name="owner" direction="desc" />
+        <property name="ownershipType" direction="desc" />
+        <property name="lastModifiedAt" direction="desc" />
+    </datastore-index>
+    <datastore-index kind="todo-list" ancestor="false" source="manual">
+        <property name="ownershipType" direction="desc" />
+        <property name="lastModifiedAt" direction="desc" />
+    </datastore-index>
+    <datastore-index kind="todo-list-item" ancestor="true" source="manual">
+        <property name="endDate" direction="desc" />
+    </datastore-index>
+    <datastore-index kind="todo-list-item" ancestor="true" source="manual">
+        <property name="completed" direction="desc" />
+    </datastore-index>
+    <datastore-index kind="todo-list" ancestor="false" source="manual">
+        <property name="owner" direction="asc"/>
+        <property name="lastModifiedAt" direction="desc"/>
+    </datastore-index>
+</datastore-indexes>
