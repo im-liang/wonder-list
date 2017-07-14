@@ -66,7 +66,7 @@ function listLists(ownership, loadMore) {
             startCursor = data.endCursor;
             for(var i in lists) {
                 var listTemplate = new TodoListGenerator();
-                var div = $("<div class='col-xs-12 col-md-4'></div>");
+                var div = $("<div class='col-xs-12 col-md-4 col-sm-6 col-lg-3'></div>");
                 listDiv.append(div);
                 listTemplate.init(div, lists[i]);
             }
@@ -111,11 +111,6 @@ function onSignIn(googleUser) {
     name = profile.getName();
     id_token = googleUser.getAuthResponse().id_token;
     id = profile.getId();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    console.log('Token: '+id_token);
     $('.g-signin2').hide();
     $('.private').show();
     $('#sign-out').show();

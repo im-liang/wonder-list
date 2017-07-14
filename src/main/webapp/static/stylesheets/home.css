@@ -60,6 +60,12 @@ body {
         vertical-align: middle;
     }
 
+    .g-signin2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     #sign-out {
         box-shadow: inset 0 0 0 2px #F03861;
     }

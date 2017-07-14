@@ -21,7 +21,7 @@ TodoListGenerator = function () {
                 resolve();
             }).fail(function (err) {
                 console.error(err);
-                return reject('FFFail from get /plain/todo-list-view.html');
+                return reject('Fail from get /plain/todo-list-view.html');
             });
         });
     }
