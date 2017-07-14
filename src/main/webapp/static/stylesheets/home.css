@@ -1,3 +1,10 @@
+body {
+    background: url("../../img/b.png") repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 /* nav bar */
 .navbar {
     border-radius: 0;
@@ -14,7 +21,7 @@
 }
 
 .navbar-btn:hover {
-    background-color: #6477b9;
+    background-color: #88BBD6;
 }
 
 #sign-out {
@@ -24,6 +31,7 @@
     position: relative;
     top: 50%;
     transform: translateY(10%);
+    color: white;
 }
 #sign-out:hover {
     border-color: #F03861;
@@ -64,7 +72,7 @@
     }
 
     .navbar-btn:hover {
-        color: #6477b9;
+        color: #88BBD6;
     }
 
     .navbar-btn::before, .navbar-btn::after {
@@ -77,15 +85,15 @@
     }
 
     .navbar-btn::before {
-        border-top: 2px solid #6477b9;
-        border-bottom: 2px solid #6477b9;
+        border-top: 2px solid #88BBD6;
+        border-bottom: 2px solid #88BBD6;
         -webkit-transform: scale3d(0, 1, 1);
         transform: scale3d(0, 1, 1);
     }
 
     .navbar-btn::after {
-        border-left: 2px solid #6477b9;
-        border-right: 2px solid #6477b9;
+        border-left: 2px solid #88BBD6;
+        border-right: 2px solid #88BBD6;
         -webkit-transform: scale3d(1, 0, 1);
         transform: scale3d(1, 0, 1);
     }
