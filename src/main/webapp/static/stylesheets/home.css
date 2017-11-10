@@ -135,6 +135,9 @@
     display: inline;
     float: left;
 }
+.modal-body {
+    overflow: auto;
+}
 
 .modal-header span {
     display: block;
